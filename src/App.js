@@ -1,24 +1,27 @@
-import logo from './logo.svg';
- import { BrowserRouter,Route,Switch } from 'react-router-dom'
-import './App.css';
-import Home from './component/Home.js'
-import Nav from './Nav.js'
-import ChangeShirt from './component/ChangeShirt'
-import Erro from './component/Erro'
+import React, { Component } from 'react'
 
+ import { Route , BrowserRouter as Router, Switch ,withRouter} from "react-router-dom";
+import Home from './component/Home'
+import Design from '../src/design/page1'
+import Profile from './component/Profile'
+
+import './App.css';
 function App() {
   return (
-     <>
-       <BrowserRouter>
-     <Nav>
-     <Switch>
-       <Route exact path="/" component={Home}/>
-        <Route exact path="/ChangeShirt" component={ChangeShirt}/>
-        <Route component={Erro}/>
-        </Switch>
-        </Nav>
-        </BrowserRouter>
-     </>
+    <div className="App">
+           
+        
+           
+          
+      <Router>
+           <Switch>
+                 <Route exact path="/home" component={withRouter(Home)} />
+                 <Route exact path="/Design" component={withRouter (Design)} />
+                 <Route exact path="/Profile" component={withRouter(Profile)} />
+                   
+                      </Switch>
+         </Router> 
+      </div>
   );
 }
 
